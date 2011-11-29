@@ -1,3 +1,20 @@
+/**
+ * Fluxo: Uma Ferramenta Visual para Auxílio ao Ensino de Programação
+ * Copyright (C) 2012 Renan Gomes (email@renangomes.com), Pedro Dantas (tigreped@gmail.com)
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 /** 
  * Aquivo: AnalisadorLexico.java
  * Autor: Renan Gomes Barreto
@@ -25,7 +42,9 @@ import java.util.List;
  */
 public class AnalisadorLexico {
 
+    /** Salva o Ultimo erro gerado pelo analizador */
     public String ultimoErro = "";
+    /** Informa a linha do ultimo erro */
     public int ultimalinhaerro = -1;
     /** Indica o nome do arquivo que contém o código fonte a ser analisado */
     private File arquivo = null;
@@ -122,6 +141,10 @@ public class AnalisadorLexico {
 
     }
 
+    /** 
+     * Cria a tabela de simbolos
+     * @return a tabela
+     */
     public List<Linha> criarTabela() throws Exception {
         // Ler o arquivo com o código fonte completamente
         FileInputStream stream = new FileInputStream(arquivo);
@@ -163,7 +186,7 @@ public class AnalisadorLexico {
         boolean comentario = false; //Usado no tratamento do comentários
 
         programa = programa.replaceAll("\\r", "");
-        
+
         for (int i = 0; i < programa.length(); contChar++, i++) {
 
             //Tratamento de comentários

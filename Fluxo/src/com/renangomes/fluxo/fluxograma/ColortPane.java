@@ -1,10 +1,6 @@
 package com.renangomes.fluxo.fluxograma;
 
-
 import java.awt.Color;
-
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.SimpleAttributeSet;
