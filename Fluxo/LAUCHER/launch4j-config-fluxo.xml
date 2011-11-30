@@ -1,0 +1,54 @@
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>Fluxo.jar</jar>
+  <outfile>d:\Dropbox\UFPB\Compiladores\Fluxo\dist\fluxo.exe</outfile>
+  <errTitle>Java not found! (O java não foi encontrado!)</errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl>http://code.google.com/p/fluxocode</supportUrl>
+  <customProcName>true</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest>D:\Dropbox\SoftwareComVc\Software\ALG-AgenciaDeLeilosGuzman\Implementacao\GerenciadorLeioes-Servidor\LAUNCHER\leiloeiroservidor.exe.manifest</manifest>
+  <icon>D:\Dropbox\UFPB\Compiladores\Fluxo\fluxo-icon.ico</icon>
+  <singleInstance>
+    <mutexName>fluxo</mutexName>
+    <windowTitle>fluxo</windowTitle>
+  </singleInstance>
+  <jre>
+    <path>jre6</path>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <initialHeapSize>64</initialHeapSize>
+    <maxHeapSize>512</maxHeapSize>
+    <opt>-Djava.security.policy=policy.all -Dfile.encoding=UTF8</opt>
+  </jre>
+  <splash>
+    <file>D:\Dropbox\UFPB\Compiladores\Fluxo\fluxo-splash.bmp</file>
+    <waitForWindow>false</waitForWindow>
+    <timeout>6</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Fluxo</fileDescription>
+    <copyright>Renan Gomes Barreto</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>Fluxo</productName>
+    <companyName>Renan Gomes Barreto</companyName>
+    <internalName>Fluxo</internalName>
+    <originalFilename>fluxo.exe</originalFilename>
+  </versionInfo>
+  <messages>
+    <startupErr>Um erro ocorreu ao tentar abrir o aplicativo. (An error occurred while starting the application.)</startupErr>
+    <bundledJreErr>Esse aplicativo usa o JAVA porém o mesmo está inválido. (This application was configured to use a bundled JRE but the runtime is missing.)</bundledJreErr>
+    <jreVersionErr>Esse aplicativo precisa que o JAVA esteja instalado. (This application requires a JRE)</jreVersionErr>
+    <launcherErr>O registro refere-se a um abiente java inexistente. Tente reinstalar o JAVA. (The registry refers to a nonexistent Java installation or the runtime is corrupted.)</launcherErr>
+    <instanceAlreadyExistsMsg>Uma outra janela do programa já está aberta. (An application instance is already running.)</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
