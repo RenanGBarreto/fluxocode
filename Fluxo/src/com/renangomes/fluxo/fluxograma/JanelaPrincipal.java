@@ -78,10 +78,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/com/renangomes/fluxo/fluxograma/imgs/import-export-icon32.png")).getImage());
 
         textPane = new ColortPane();
-
+        textPane.setBackground(Color.WHITE);
 
         JScrollPane scrollPane = new JScrollPane(textPane);
         tln = new TextLineNumber(textPane);
+        tln.setBackground(Color.LIGHT_GRAY);
+        
         textPane.addKeyListener(new java.awt.event.KeyAdapter() {
 
             String ultimo = textPane.getText();
@@ -96,7 +98,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
         textPane.setFont(new java.awt.Font("Verdana", 0, 14));
+        
         scrollPane.setRowHeaderView(tln);
+        scrollPane.setBackground(Color.WHITE);
         pnel.add(scrollPane);
         this.setExtendedState(JanelaPrincipal.MAXIMIZED_BOTH);
         this.validate();
@@ -370,8 +374,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbFluxos)
-                    .addComponent(btzoomin, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(btzoomout, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(btzoomin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(btzoomout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(bLegenda, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(bExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -388,10 +392,10 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(109, 109, 109)));
 
-        taSaida.setBackground(new java.awt.Color(204, 204, 204));
+        taSaida.setBackground(new java.awt.Color(220, 220, 220));
         taSaida.setColumns(20);
         taSaida.setEditable(false);
-        taSaida.setFont(new java.awt.Font("Verdana", 0, 14));
+        taSaida.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         taSaida.setLineWrap(true);
         taSaida.setRows(3);
         taSaida.setWrapStyleWord(true);
@@ -794,11 +798,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             } catch (RuntimeException e) {
                 //e.printStackTrace();
                 taSaida.setText(as.ultimoErro);
-                taSaida.setBackground(new Color(255, 100, 100));
+                taSaida.setBackground(new Color(255, 120, 120));
                 erro = true;
                 linhaDoerro = as.ultimalinhaerro;
             } catch (Exception ne) {
                 ne.printStackTrace();
+                taSaida.setForeground(Color.BLACK);
                 taSaida.setText("Erro desconhecido: " + ne.getMessage());
                 taSaida.setBackground(Color.GRAY);
                 erro = true;
@@ -807,11 +812,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         } catch (RuntimeException e) {
             //e.printStackTrace();
             taSaida.setText(al.ultimoErro);
-            taSaida.setBackground(new Color(255, 100, 100));
+            taSaida.setForeground(Color.BLACK);
+            taSaida.setBackground(new Color(255, 120, 120));
             erro = true;
             linhaDoerro = al.ultimalinhaerro;
         } catch (Exception ne) {
             ne.printStackTrace();
+            taSaida.setForeground(Color.BLACK);
             taSaida.setText("Erro desconhecido: " + ne.getMessage());
             taSaida.setBackground(Color.GRAY);
             erro = true;
@@ -1434,10 +1441,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }
 
     private void abrirLegenda() {
+        String n = "legenda.rtf";
         try {
-            abrirExternamente(new File("legenda.rtf"));
+            abrirExternamente(new File(n));
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Não foi possível abrir o arquivo.", "Erro ao abrir o arquivo", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Não foi possível abrir o arquivo. ", "Erro ao abrir o arquivo.", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(JanelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

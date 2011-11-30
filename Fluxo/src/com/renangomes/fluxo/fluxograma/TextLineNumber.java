@@ -71,7 +71,7 @@ public class TextLineNumber extends JPanel
 	{
 		this.component = component;
 
-		setFont( component.getFont() );
+		setFont( component.getFont().deriveFont(Font.BOLD) );
 
 		setBorderGap( 5 );
 		setCurrentLineForeground( Color.RED );
