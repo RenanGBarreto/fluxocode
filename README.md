@@ -1,5 +1,5 @@
 ﻿
-![Fluxo](https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-icon.png)
+![Fluxo](https://github.com/RenanGBarreto/fluxocode/raw/master/fluxo-icon.png)
 
 # Fluxo: Uma Ferramenta Visual para Auxílio ao Ensino de Programação (A Visual Tool for Programming Teaching)
 
