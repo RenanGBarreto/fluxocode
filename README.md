@@ -3,6 +3,16 @@
 
 # Fluxo: Uma Ferramenta Visual para Auxílio ao Ensino de Programação / Fluxo: A Visual Tool for Programming Teaching
 
+Uma ferramenta que permite a criação e validação de código fonte na linguagem pascal, mostrando um fluxograma do código em tempo real.
+
+O software pode ser utilizado para o ensino de programação pois facilita o aprendizado e a familiarização com os principais operadores da linguagem.
+
+---
+
+A tool that allows the creation and validation of source code in the Pascal language, showing a flowchart of the code in real time.
+
+The software can be used for teaching programming as it facilitates learning and familiarization with the main language operators.
+
 ## SCREENSHOTS
 <p align="center">
   <img alt="FluxoCode Image 1" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png" width="40%"> 
