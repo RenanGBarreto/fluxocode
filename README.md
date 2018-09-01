@@ -1,11 +1,12 @@
 ﻿
-![Fluxo](https://github.com/RenanGBarreto/fluxocode/raw/master/fluxo-icon.png)
+![Fluxo](https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-icon-small.png)
 
-# Fluxo: Uma Ferramenta Visual para Auxílio ao Ensino de Programação (A Visual Tool for Programming Teaching)
+# Fluxo: Uma Ferramenta Visual para Auxílio ao Ensino de Programação / Fluxo: A Visual Tool for Programming Teaching
 
 ## SCREENSHOTS
 <p align="center">
-  <img alt="Fluxo Installer" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png">
+  <img alt="FluxoCode Image 1" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png" width="40%"> 
+  <img alt="FluxoCode Image 2" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-2.png" width="40%">
 </p>
 
 ## REQUERIMENTOS DO SISTEMA
