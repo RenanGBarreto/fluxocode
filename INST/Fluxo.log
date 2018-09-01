@@ -1,0 +1,2016 @@
+MakeNSIS v2.46 - Copyright 1995-2009 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Processing config: 
+Processing plugin dlls: "C:\Program Files (x86)\NSIS\Plugins\*.dll"
+ - AdvSplash::show
+ - Banner::destroy
+ - Banner::getWindow
+ - Banner::show
+ - BgImage::AddImage
+ - BgImage::AddText
+ - BgImage::Clear
+ - BgImage::Destroy
+ - BgImage::Redraw
+ - BgImage::SetBg
+ - BgImage::SetReturn
+ - BgImage::Sound
+ - Dialer::AttemptConnect
+ - Dialer::AutodialHangup
+ - Dialer::AutodialOnline
+ - Dialer::AutodialUnattended
+ - Dialer::GetConnectedState
+ - InstallOptions::dialog
+ - InstallOptions::initDialog
+ - InstallOptions::show
+ - LangDLL::LangDialog
+ - Math::Script
+ - NSISdl::download
+ - NSISdl::download_quiet
+ - Splash::show
+ - StartMenu::Init
+ - StartMenu::Select
+ - StartMenu::Show
+ - System::Alloc
+ - System::Call
+ - System::Copy
+ - System::Free
+ - System::Get
+ - System::Int64Op
+ - System::Store
+ - TypeLib::GetLibVersion
+ - TypeLib::Register
+ - TypeLib::UnRegister
+ - UserInfo::GetAccountType
+ - UserInfo::GetName
+ - UserInfo::GetOriginalAccountType
+ - VPatch::GetFileCRC32
+ - VPatch::GetFileMD5
+ - VPatch::vpatchfile
+ - nsDialogs::Create
+ - nsDialogs::CreateControl
+ - nsDialogs::CreateItem
+ - nsDialogs::CreateTimer
+ - nsDialogs::GetUserData
+ - nsDialogs::KillTimer
+ - nsDialogs::OnBack
+ - nsDialogs::OnChange
+ - nsDialogs::OnClick
+ - nsDialogs::OnNotify
+ - nsDialogs::SelectFileDialog
+ - nsDialogs::SelectFolderDialog
+ - nsDialogs::SetRTL
+ - nsDialogs::SetUserData
+ - nsDialogs::Show
+ - nsExec::Exec
+ - nsExec::ExecToLog
+ - nsExec::ExecToStack
+
+!define: "MUI_INSERT_NSISCONF"=""
+
+Changing directory to: "C:\Users\RENANG~1\AppData\Local\Temp"
+
+Processing script file: "C:\Users\RENANG~1\AppData\Local\Temp\nslE408.tmp"
+!define: "APP_NAME"="Fluxo"
+!define: "COMP_NAME"="Renan Gomes"
+!define: "WEB_SITE"="http://code.google.com/p/fluxocode"
+!define: "VERSION"="1.0.0.0"
+!define: "COPYRIGHT"="Renan Gomes, Pedro Dantas"
+!define: "DESCRIPTION"="Uma Ferramenta Visual para Auxílio ao Ensino de Programação"
+!define: "LICENSE_TXT"="d:\Dropbox\UFPB\Compiladores\Fluxo\README.TXT"
+!define: "INSTALLER_NAME"="d:\Dropbox\UFPB\Compiladores\Fluxo\DOWNLOADS\instalador-fluxo-1.0.0.0-windows.exe"
+!define: "MAIN_APP_EXE"="fluxo.exe"
+!define: "INSTALL_TYPE"="SetShellVarContext all"
+!define: "REG_ROOT"="HKLM"
+!define: "REG_APP_PATH"="Software\Microsoft\Windows\CurrentVersion\App Paths\fluxo.exe"
+!define: "UNINSTALL_PATH"="Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo"
+!define: "REG_START_MENU"="Start Menu Folder"
+Var: "SM_Folder"
+VIAddVersionKey: "ProductName" "Fluxo"
+VIAddVersionKey: "CompanyName" "Renan Gomes"
+VIAddVersionKey: "LegalCopyright" "Renan Gomes, Pedro Dantas"
+VIAddVersionKey: "FileDescription" "Uma Ferramenta Visual para Auxílio ao Ensino de Programação"
+VIAddVersionKey: "FileVersion" "1.0.0.0"
+SetCompressor: /SOLID Lzma
+Name: "Fluxo"
+Caption: "Fluxo"
+OutFile: "d:\Dropbox\UFPB\Compiladores\Fluxo\DOWNLOADS\instalador-fluxo-1.0.0.0-windows.exe"
+BrandingText: "Fluxo"
+XPStyle: on
+InstallRegKey: "HKLM\Software\Microsoft\Windows\CurrentVersion\App Paths\fluxo.exe\"
+InstallDir: "$PROGRAMFILES\Fluxo"
+!include: "C:\Program Files (x86)\NSIS\Include\MUI.nsh"
+!include: "C:\Program Files (x86)\NSIS\Contrib\Modern UI\System.nsh"
+NSIS Modern User Interface version 1.8 - Copyright 2002-2009 Joost Verburg (C:\Program Files (x86)\NSIS\Contrib\Modern UI\System.nsh:8)
+!define: "MUI_INCLUDED"=""
+!define: "MUI_SYSVERSION"="1.8"
+!define: "MUI_VERBOSE"="3"
+!include: closed: "C:\Program Files (x86)\NSIS\Contrib\Modern UI\System.nsh"
+!include: closed: "C:\Program Files (x86)\NSIS\Include\MUI.nsh"
+!define: "MUI_ABORTWARNING"=""
+!define: "MUI_UNABORTWARNING"=""
+!define: "MUI_LANGDLL_REGISTRY_ROOT"="HKLM"
+!define: "MUI_LANGDLL_REGISTRY_KEY"="Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo"
+!define: "MUI_LANGDLL_REGISTRY_VALUENAME"="Installer Language"
+!insertmacro: MUI_PAGE_WELCOME
+!insertmacro: end of MUI_PAGE_WELCOME
+!insertmacro: MUI_PAGE_LICENSE
+!insertmacro: end of MUI_PAGE_LICENSE
+!insertmacro: MUI_PAGE_DIRECTORY
+!insertmacro: end of MUI_PAGE_DIRECTORY
+!define: "MUI_STARTMENUPAGE_NODISABLE"=""
+!define: "MUI_STARTMENUPAGE_DEFAULTFOLDER"="Fluxo"
+!define: "MUI_STARTMENUPAGE_REGISTRY_ROOT"="HKLM"
+!define: "MUI_STARTMENUPAGE_REGISTRY_KEY"="Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo"
+!define: "MUI_STARTMENUPAGE_REGISTRY_VALUENAME"="Start Menu Folder"
+!insertmacro: MUI_PAGE_STARTMENU
+!insertmacro: end of MUI_PAGE_STARTMENU
+!insertmacro: MUI_PAGE_INSTFILES
+!insertmacro: end of MUI_PAGE_INSTFILES
+!define: "MUI_FINISHPAGE_RUN"="$INSTDIR\fluxo.exe"
+!insertmacro: MUI_PAGE_FINISH
+!insertmacro: end of MUI_PAGE_FINISH
+!insertmacro: MUI_UNPAGE_CONFIRM
+!insertmacro: end of MUI_UNPAGE_CONFIRM
+!insertmacro: MUI_UNPAGE_INSTFILES
+!insertmacro: end of MUI_UNPAGE_INSTFILES
+!insertmacro: MUI_UNPAGE_FINISH
+!insertmacro: end of MUI_UNPAGE_FINISH
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+!insertmacro: MUI_RESERVEFILE_LANGDLL
+!insertmacro: end of MUI_RESERVEFILE_LANGDLL
+Function: ".onInit"
+!insertmacro: MUI_LANGDLL_DISPLAY
+!insertmacro: end of MUI_LANGDLL_DISPLAY
+FunctionEnd
+Section: "-MainProgram"
+SetShellVarContext: all
+SetOverwrite: ifnewer
+SetOutPath: "$INSTDIR"
+File: "fluxo-icon.png" 11854 bytes
+File: "fluxo-screenshot.jpg" 231936 bytes
+File: "fluxo-splash.bmp" 386456 bytes
+File: "fluxo.exe" 785920 bytes
+File: "Fluxo.jar" 178178 bytes
+File: "legenda.rtf" 386187 bytes
+File: "README.TXT" 1825 bytes
+SetOutPath: "$INSTDIR\lib"
+File: "jgraphx.jar" 624989 bytes
+SetOutPath: "$INSTDIR\lib\.svn"
+File: "all-wcprops" 156 bytes
+File: "entries" 421 bytes
+SetOutPath: "$INSTDIR\lib\.svn\text-base"
+File: "jgraphx.jar.svn-base" 0/624989 bytes
+SetOutPath: "$INSTDIR\lib\.svn\prop-base"
+File: "jgraphx.jar.svn-base" 53 bytes
+SetOutPath: "$INSTDIR\jre6\lib"
+File: "calendars.properties" 1200 bytes
+File: "charsets.jar" 6695540 bytes
+File: "classlist" 82115 bytes
+File: "content-types.properties" 5501 bytes
+File: "deploy.jar" 3376798 bytes
+File: "flavormap.properties" 3797 bytes
+File: "fontconfig.98.bfc" 2710 bytes
+File: "fontconfig.98.properties.src" 7569 bytes
+File: "fontconfig.bfc" 3478 bytes
+File: "fontconfig.properties.src" 9737 bytes
+File: "javaws.jar" 828816 bytes
+File: "jce.jar" 88256 bytes
+File: "jsse.jar" 569269 bytes
+File: "jvm.hprof.txt" 2784 bytes
+File: "logging.properties" 2245 bytes
+File: "management-agent.jar" 382 bytes
+File: "meta-index" 2338 bytes
+File: "net.properties" 3070 bytes
+File: "plugin.jar" 1737364 bytes
+File: "psfont.properties.ja" 3040 bytes
+File: "psfontj2d.properties" 10639 bytes
+File: "resources.jar" 1133382 bytes
+File: "rt.jar" 44724671 bytes
+File: "sound.properties" 1210 bytes
+File: "tzmappings" 7961 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi"
+File: "CET" 1184 bytes
+File: "CST6CDT" 1272 bytes
+File: "EET" 1072 bytes
+File: "EST" 27 bytes
+File: "EST5EDT" 1272 bytes
+File: "GMT" 27 bytes
+File: "HST" 27 bytes
+File: "MET" 0/1184 bytes
+File: "MST" 27 bytes
+File: "MST7MDT" 1272 bytes
+File: "PST8PDT" 1272 bytes
+File: "WET" 1068 bytes
+File: "ZoneInfoMappings" 14424 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\SystemV"
+File: "AST4" 27 bytes
+File: "AST4ADT" 2288 bytes
+File: "CST6" 27 bytes
+File: "CST6CDT" 2288 bytes
+File: "EST5" 0/27 bytes
+File: "EST5EDT" 2288 bytes
+File: "HST10" 0/27 bytes
+File: "MST7" 0/27 bytes
+File: "MST7MDT" 2288 bytes
+File: "PST8" 27 bytes
+File: "PST8PDT" 2288 bytes
+File: "YST9" 27 bytes
+File: "YST9YDT" 2288 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Pacific"
+File: "Apia" 105 bytes
+File: "Auckland" 1348 bytes
+File: "Chatham" 1124 bytes
+File: "Chuuk" 65 bytes
+File: "Easter" 1248 bytes
+File: "Efate" 233 bytes
+File: "Enderbury" 89 bytes
+File: "Fakaofo" 65 bytes
+File: "Fiji" 137 bytes
+File: "Funafuti" 65 bytes
+File: "Galapagos" 77 bytes
+File: "Gambier" 65 bytes
+File: "Guadalcanal" 65 bytes
+File: "Guam" 65 bytes
+File: "Honolulu" 117 bytes
+File: "Johnston" 0/27 bytes
+File: "Kiritimati" 89 bytes
+File: "Kosrae" 85 bytes
+File: "Kwajalein" 89 bytes
+File: "Majuro" 77 bytes
+File: "Marquesas" 65 bytes
+File: "Midway" 89 bytes
+File: "Nauru" 97 bytes
+File: "Niue" 89 bytes
+File: "Norfolk" 77 bytes
+File: "Noumea" 121 bytes
+File: "Pago_Pago" 77 bytes
+File: "Palau" 65 bytes
+File: "Pitcairn" 77 bytes
+File: "Pohnpei" 65 bytes
+File: "Port_Moresby" 27 bytes
+File: "Rarotonga" 285 bytes
+File: "Saipan" 77 bytes
+File: "Tahiti" 65 bytes
+File: "Tarawa" 65 bytes
+File: "Tongatapu" 133 bytes
+File: "Wake" 65 bytes
+File: "Wallis" 65 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Indian"
+File: "Antananarivo" 89 bytes
+File: "Chagos" 77 bytes
+File: "Christmas" 27 bytes
+File: "Cocos" 27 bytes
+File: "Comoro" 65 bytes
+File: "Kerguelen" 65 bytes
+File: "Mahe" 65 bytes
+File: "Maldives" 65 bytes
+File: "Mauritius" 105 bytes
+File: "Mayotte" 65 bytes
+File: "Reunion" 65 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Europe"
+File: "Amsterdam" 1544 bytes
+File: "Andorra" 968 bytes
+File: "Athens" 1196 bytes
+File: "Belgrade" 1040 bytes
+File: "Berlin" 1236 bytes
+File: "Brussels" 1564 bytes
+File: "Bucharest" 1180 bytes
+File: "Budapest" 1312 bytes
+File: "Chisinau" 1212 bytes
+File: "Copenhagen" 1152 bytes
+File: "Dublin" 1916 bytes
+File: "Gibraltar" 1676 bytes
+File: "Helsinki" 1036 bytes
+File: "Istanbul" 1464 bytes
+File: "Kaliningrad" 1140 bytes
+File: "Kiev" 1048 bytes
+File: "Lisbon" 1868 bytes
+File: "London" 2024 bytes
+File: "Luxembourg" 1568 bytes
+File: "Madrid" 1416 bytes
+File: "Malta" 1440 bytes
+File: "Minsk" 1064 bytes
+File: "Monaco" 1576 bytes
+File: "Moscow" 1152 bytes
+File: "Oslo" 1216 bytes
+File: "Paris" 1568 bytes
+File: "Prague" 1216 bytes
+File: "Riga" 1108 bytes
+File: "Rome" 1440 bytes
+File: "Samara" 1040 bytes
+File: "Simferopol" 1064 bytes
+File: "Sofia" 1088 bytes
+File: "Stockholm" 1040 bytes
+File: "Tallinn" 1080 bytes
+File: "Tirane" 1164 bytes
+File: "Uzhgorod" 1052 bytes
+File: "Vaduz" 1008 bytes
+File: "Vienna" 1200 bytes
+File: "Vilnius" 1060 bytes
+File: "Volgograd" 1024 bytes
+File: "Warsaw" 1416 bytes
+File: "Zaporozhye" 1072 bytes
+File: "Zurich" 1040 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Etc"
+File: "GMT" 0/27 bytes
+File: "GMT+1" 27 bytes
+File: "GMT+10" 0/27 bytes
+File: "GMT+11" 27 bytes
+File: "GMT+12" 27 bytes
+File: "GMT+2" 27 bytes
+File: "GMT+3" 27 bytes
+File: "GMT+4" 0/27 bytes
+File: "GMT+5" 0/27 bytes
+File: "GMT+6" 0/27 bytes
+File: "GMT+7" 0/27 bytes
+File: "GMT+8" 0/27 bytes
+File: "GMT+9" 0/27 bytes
+File: "GMT-1" 27 bytes
+File: "GMT-10" 0/27 bytes
+File: "GMT-11" 27 bytes
+File: "GMT-12" 27 bytes
+File: "GMT-13" 27 bytes
+File: "GMT-14" 27 bytes
+File: "GMT-2" 27 bytes
+File: "GMT-3" 27 bytes
+File: "GMT-4" 27 bytes
+File: "GMT-5" 27 bytes
+File: "GMT-6" 27 bytes
+File: "GMT-7" 0/27 bytes
+File: "GMT-8" 27 bytes
+File: "GMT-9" 27 bytes
+File: "UCT" 0/27 bytes
+File: "UTC" 0/27 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Australia"
+File: "Adelaide" 1224 bytes
+File: "Brisbane" 189 bytes
+File: "Broken_Hill" 1224 bytes
+File: "Currie" 1224 bytes
+File: "Darwin" 125 bytes
+File: "Eucla" 205 bytes
+File: "Hobart" 1288 bytes
+File: "Lindeman" 221 bytes
+File: "Lord_Howe" 1012 bytes
+File: "Melbourne" 1224 bytes
+File: "Perth" 205 bytes
+File: "Sydney" 1224 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Atlantic"
+File: "Azores" 1868 bytes
+File: "Bermuda" 1124 bytes
+File: "Canary" 1044 bytes
+File: "Cape_Verde" 97 bytes
+File: "Faroe" 1016 bytes
+File: "Madeira" 1864 bytes
+File: "Reykjavik" 577 bytes
+File: "South_Georgia" 0/27 bytes
+File: "Stanley" 1080 bytes
+File: "St_Helena" 65 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Asia"
+File: "Aden" 65 bytes
+File: "Almaty" 453 bytes
+File: "Amman" 1052 bytes
+File: "Anadyr" 1044 bytes
+File: "Aqtau" 453 bytes
+File: "Aqtobe" 453 bytes
+File: "Ashgabat" 269 bytes
+File: "Baghdad" 489 bytes
+File: "Bahrain" 77 bytes
+File: "Baku" 976 bytes
+File: "Bangkok" 65 bytes
+File: "Beirut" 1208 bytes
+File: "Bishkek" 485 bytes
+File: "Brunei" 77 bytes
+File: "Choibalsan" 449 bytes
+File: "Chongqing" 181 bytes
+File: "Colombo" 129 bytes
+File: "Damascus" 1300 bytes
+File: "Dhaka" 121 bytes
+File: "Dili" 93 bytes
+File: "Dubai" 65 bytes
+File: "Dushanbe" 261 bytes
+File: "Gaza" 1236 bytes
+File: "Harbin" 205 bytes
+File: "Hong_Kong" 617 bytes
+File: "Hovd" 437 bytes
+File: "Ho_Chi_Minh" 97 bytes
+File: "Irkutsk" 1040 bytes
+File: "Jakarta" 129 bytes
+File: "Jayapura" 85 bytes
+File: "Jerusalem" 1236 bytes
+File: "Kabul" 65 bytes
+File: "Kamchatka" 1040 bytes
+File: "Karachi" 153 bytes
+File: "Kashgar" 193 bytes
+File: "Kathmandu" 77 bytes
+File: "Kolkata" 97 bytes
+File: "Krasnoyarsk" 1040 bytes
+File: "Kuala_Lumpur" 145 bytes
+File: "Kuching" 217 bytes
+File: "Kuwait" 65 bytes
+File: "Macau" 393 bytes
+File: "Magadan" 1040 bytes
+File: "Makassar" 85 bytes
+File: "Manila" 125 bytes
+File: "Muscat" 65 bytes
+File: "Nicosia" 1116 bytes
+File: "Novokuznetsk" 1040 bytes
+File: "Novosibirsk" 1048 bytes
+File: "Omsk" 1040 bytes
+File: "Oral" 461 bytes
+File: "Phnom_Penh" 97 bytes
+File: "Pontianak" 125 bytes
+File: "Pyongyang" 101 bytes
+File: "Qatar" 77 bytes
+File: "Qyzylorda" 465 bytes
+File: "Rangoon" 85 bytes
+File: "Riyadh" 65 bytes
+File: "Riyadh87" 4821 bytes
+File: "Riyadh88" 4733 bytes
+File: "Riyadh89" 4765 bytes
+File: "Sakhalin" 1044 bytes
+File: "Samarkand" 261 bytes
+File: "Seoul" 165 bytes
+File: "Shanghai" 201 bytes
+File: "Singapore" 133 bytes
+File: "Taipei" 381 bytes
+File: "Tashkent" 261 bytes
+File: "Tbilisi" 469 bytes
+File: "Tehran" 892 bytes
+File: "Thimphu" 77 bytes
+File: "Tokyo" 125 bytes
+File: "Ulaanbaatar" 437 bytes
+File: "Urumqi" 181 bytes
+File: "Vientiane" 97 bytes
+File: "Vladivostok" 1040 bytes
+File: "Yakutsk" 1040 bytes
+File: "Yekaterinburg" 1040 bytes
+File: "Yerevan" 1016 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Antarctica"
+File: "Casey" 85 bytes
+File: "Davis" 101 bytes
+File: "DumontDUrville" 81 bytes
+File: "Macquarie" 825 bytes
+File: "Mawson" 77 bytes
+File: "McMurdo" 1124 bytes
+File: "Palmer" 1104 bytes
+File: "Rothera" 65 bytes
+File: "Syowa" 65 bytes
+File: "Vostok" 65 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\America"
+File: "Adak" 1224 bytes
+File: "Anchorage" 1224 bytes
+File: "Anguilla" 65 bytes
+File: "Antigua" 77 bytes
+File: "Araguaina" 457 bytes
+File: "Aruba" 77 bytes
+File: "Asuncion" 1116 bytes
+File: "Atikokan" 93 bytes
+File: "Bahia" 537 bytes
+File: "Bahia_Banderas" 844 bytes
+File: "Barbados" 137 bytes
+File: "Belem" 297 bytes
+File: "Belize" 513 bytes
+File: "Blanc-Sablon" 93 bytes
+File: "Boa_Vista" 329 bytes
+File: "Bogota" 89 bytes
+File: "Boise" 1284 bytes
+File: "Cambridge_Bay" 1076 bytes
+File: "Campo_Grande" 1116 bytes
+File: "Cancun" 792 bytes
+File: "Caracas" 85 bytes
+File: "Cayenne" 77 bytes
+File: "Cayman" 65 bytes
+File: "Chicago" 1960 bytes
+File: "Chihuahua" 816 bytes
+File: "Costa_Rica" 137 bytes
+File: "Cuiaba" 1100 bytes
+File: "Curacao" 77 bytes
+File: "Danmarkshavn" 341 bytes
+File: "Dawson" 1108 bytes
+File: "Dawson_Creek" 509 bytes
+File: "Denver" 1336 bytes
+File: "Detroit" 1200 bytes
+File: "Dominica" 65 bytes
+File: "Edmonton" 1316 bytes
+File: "Eirunepe" 321 bytes
+File: "El_Salvador" 105 bytes
+File: "Fortaleza" 377 bytes
+File: "Glace_Bay" 1204 bytes
+File: "Godthab" 1036 bytes
+File: "Goose_Bay" 1728 bytes
+File: "Grand_Turk" 1044 bytes
+File: "Grenada" 65 bytes
+File: "Guadeloupe" 65 bytes
+File: "Guatemala" 137 bytes
+File: "Guayaquil" 65 bytes
+File: "Guyana" 89 bytes
+File: "Halifax" 1908 bytes
+File: "Havana" 1340 bytes
+File: "Hermosillo" 189 bytes
+File: "Inuvik" 1060 bytes
+File: "Iqaluit" 1064 bytes
+File: "Jamaica" 233 bytes
+File: "Juneau" 1224 bytes
+File: "La_Paz" 81 bytes
+File: "Lima" 185 bytes
+File: "Los_Angeles" 1560 bytes
+File: "Maceio" 393 bytes
+File: "Managua" 185 bytes
+File: "Manaus" 313 bytes
+File: "Martinique" 89 bytes
+File: "Matamoros" 788 bytes
+File: "Mazatlan" 840 bytes
+File: "Menominee" 1216 bytes
+File: "Merida" 788 bytes
+File: "Mexico_City" 880 bytes
+File: "Miquelon" 928 bytes
+File: "Moncton" 1732 bytes
+File: "Monterrey" 788 bytes
+File: "Montevideo" 1152 bytes
+File: "Montreal" 1928 bytes
+File: "Montserrat" 65 bytes
+File: "Nassau" 1284 bytes
+File: "New_York" 1960 bytes
+File: "Nipigon" 1144 bytes
+File: "Nome" 1228 bytes
+File: "Noronha" 377 bytes
+File: "Ojinaga" 816 bytes
+File: "Panama" 65 bytes
+File: "Pangnirtung" 1076 bytes
+File: "Paramaribo" 101 bytes
+File: "Phoenix" 141 bytes
+File: "Port-au-Prince" 345 bytes
+File: "Porto_Velho" 297 bytes
+File: "Port_of_Spain" 65 bytes
+File: "Puerto_Rico" 77 bytes
+File: "Rainy_River" 1144 bytes
+File: "Rankin_Inlet" 1052 bytes
+File: "Recife" 377 bytes
+File: "Regina" 481 bytes
+File: "Resolute" 529 bytes
+File: "Rio_Branco" 305 bytes
+File: "Santarem" 305 bytes
+File: "Santa_Isabel" 1276 bytes
+File: "Santiago" 1368 bytes
+File: "Santo_Domingo" 201 bytes
+File: "Sao_Paulo" 1116 bytes
+File: "Scoresbysund" 1040 bytes
+File: "St_Johns" 2000 bytes
+File: "St_Kitts" 65 bytes
+File: "St_Lucia" 65 bytes
+File: "St_Thomas" 65 bytes
+File: "St_Vincent" 65 bytes
+File: "Swift_Current" 241 bytes
+File: "Tegucigalpa" 121 bytes
+File: "Thule" 852 bytes
+File: "Thunder_Bay" 1188 bytes
+File: "Tijuana" 1276 bytes
+File: "Toronto" 1928 bytes
+File: "Tortola" 65 bytes
+File: "Vancouver" 1592 bytes
+File: "Whitehorse" 1108 bytes
+File: "Winnipeg" 1560 bytes
+File: "Yakutat" 1220 bytes
+File: "Yellowknife" 1068 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\America\North_Dakota"
+File: "Center" 1276 bytes
+File: "New_Salem" 1276 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\America\Kentucky"
+File: "Louisville" 1500 bytes
+File: "Monticello" 1260 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\America\Indiana"
+File: "Indianapolis" 868 bytes
+File: "Knox" 1304 bytes
+File: "Marengo" 900 bytes
+File: "Petersburg" 1004 bytes
+File: "Tell_City" 884 bytes
+File: "Vevay" 724 bytes
+File: "Vincennes" 884 bytes
+File: "Winamac" 932 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\America\Argentina"
+File: "Buenos_Aires" 549 bytes
+File: "Catamarca" 549 bytes
+File: "Cordoba" 549 bytes
+File: "Jujuy" 533 bytes
+File: "La_Rioja" 557 bytes
+File: "Mendoza" 549 bytes
+File: "Rio_Gallegos" 549 bytes
+File: "Salta" 533 bytes
+File: "San_Juan" 557 bytes
+File: "San_Luis" 557 bytes
+File: "Tucuman" 565 bytes
+File: "Ushuaia" 549 bytes
+SetOutPath: "$INSTDIR\jre6\lib\zi\Africa"
+File: "Abidjan" 65 bytes
+File: "Accra" 181 bytes
+File: "Addis_Ababa" 65 bytes
+File: "Algiers" 333 bytes
+File: "Asmara" 0/65 bytes
+File: "Bamako" 85 bytes
+File: "Bangui" 65 bytes
+File: "Banjul" 77 bytes
+File: "Bissau" 77 bytes
+File: "Blantyre" 65 bytes
+File: "Brazzaville" 65 bytes
+File: "Bujumbura" 0/27 bytes
+File: "Cairo" 1516 bytes
+File: "Casablanca" 261 bytes
+File: "Ceuta" 1112 bytes
+File: "Conakry" 85 bytes
+File: "Dakar" 77 bytes
+File: "Dar_es_Salaam" 85 bytes
+File: "Djibouti" 65 bytes
+File: "Douala" 65 bytes
+File: "El_Aaiun" 77 bytes
+File: "Freetown" 313 bytes
+File: "Gaborone" 77 bytes
+File: "Harare" 65 bytes
+File: "Johannesburg" 105 bytes
+File: "Kampala" 97 bytes
+File: "Khartoum" 337 bytes
+File: "Kigali" 65 bytes
+File: "Kinshasa" 0/27 bytes
+File: "Lagos" 65 bytes
+File: "Libreville" 65 bytes
+File: "Lome" 0/27 bytes
+File: "Luanda" 65 bytes
+File: "Lubumbashi" 0/27 bytes
+File: "Lusaka" 65 bytes
+File: "Malabo" 77 bytes
+File: "Maputo" 65 bytes
+File: "Maseru" 89 bytes
+File: "Mbabane" 65 bytes
+File: "Mogadishu" 73 bytes
+File: "Monrovia" 77 bytes
+File: "Nairobi" 97 bytes
+File: "Ndjamena" 89 bytes
+File: "Niamey" 89 bytes
+File: "Nouakchott" 85 bytes
+File: "Ouagadougou" 65 bytes
+File: "Porto-Novo" 77 bytes
+File: "Sao_Tome" 65 bytes
+File: "Tripoli" 293 bytes
+File: "Tunis" 329 bytes
+File: "Windhoek" 824 bytes
+SetOutPath: "$INSTDIR\jre6\lib\servicetag"
+File: "jdk_header.png" 8705 bytes
+File: "registration.xml" 1563 bytes
+SetOutPath: "$INSTDIR\jre6\lib\security"
+File: "blacklist" 92 bytes
+File: "cacerts" 81202 bytes
+File: "java.policy" 2253 bytes
+File: "java.security" 9979 bytes
+File: "javaws.policy" 109 bytes
+File: "local_policy.jar" 2940 bytes
+File: "trusted.libraries" 14189 bytes
+File: "US_export_policy.jar" 2469 bytes
+SetOutPath: "$INSTDIR\jre6\lib\management"
+File: "jmxremote.access" 3998 bytes
+File: "jmxremote.password.template" 2856 bytes
+File: "management.properties" 14097 bytes
+File: "snmp.acl.template" 3376 bytes
+SetOutPath: "$INSTDIR\jre6\lib\images\cursors"
+File: "cursors.properties" 1290 bytes
+File: "invalid32x32.gif" 153 bytes
+File: "win32_CopyDrop32x32.gif" 165 bytes
+File: "win32_CopyNoDrop32x32.gif" 0/153 bytes
+File: "win32_LinkDrop32x32.gif" 168 bytes
+File: "win32_LinkNoDrop32x32.gif" 0/153 bytes
+File: "win32_MoveDrop32x32.gif" 147 bytes
+File: "win32_MoveNoDrop32x32.gif" 0/153 bytes
+SetOutPath: "$INSTDIR\jre6\lib\images\cursors\.svn"
+File: "entries" 753 bytes
+SetOutPath: "$INSTDIR\jre6\lib\images\cursors\.svn\props"
+File: "invalid32x32.gif.svn-work" 0/53 bytes
+File: "win32_CopyDrop32x32.gif.svn-work" 0/53 bytes
+File: "win32_CopyNoDrop32x32.gif.svn-work" 0/53 bytes
+File: "win32_LinkDrop32x32.gif.svn-work" 0/53 bytes
+File: "win32_LinkNoDrop32x32.gif.svn-work" 0/53 bytes
+File: "win32_MoveDrop32x32.gif.svn-work" 0/53 bytes
+File: "win32_MoveNoDrop32x32.gif.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\images\.svn"
+File: "entries" 265 bytes
+SetOutPath: "$INSTDIR\jre6\lib\im"
+File: "indicim.jar" 10193 bytes
+File: "thaiim.jar" 7923 bytes
+SetOutPath: "$INSTDIR\jre6\lib\im\.svn"
+File: "entries" 349 bytes
+SetOutPath: "$INSTDIR\jre6\lib\im\.svn\props"
+File: "indicim.jar.svn-work" 0/53 bytes
+File: "thaiim.jar.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\i386"
+File: "jvm.cfg" 669 bytes
+SetOutPath: "$INSTDIR\jre6\lib\i386\.svn"
+File: "entries" 264 bytes
+SetOutPath: "$INSTDIR\jre6\lib\fonts"
+File: "LucidaBrightDemiBold.ttf" 75144 bytes
+File: "LucidaBrightDemiItalic.ttf" 75124 bytes
+File: "LucidaBrightItalic.ttf" 80856 bytes
+File: "LucidaBrightRegular.ttf" 344908 bytes
+File: "LucidaSansDemiBold.ttf" 317896 bytes
+File: "LucidaSansRegular.ttf" 698236 bytes
+File: "LucidaTypewriterBold.ttf" 234068 bytes
+File: "LucidaTypewriterRegular.ttf" 242700 bytes
+SetOutPath: "$INSTDIR\jre6\lib\fonts\.svn"
+File: "entries" 784 bytes
+SetOutPath: "$INSTDIR\jre6\lib\fonts\.svn\props"
+File: "LucidaBrightDemiBold.ttf.svn-work" 0/53 bytes
+File: "LucidaBrightDemiItalic.ttf.svn-work" 0/53 bytes
+File: "LucidaBrightItalic.ttf.svn-work" 0/53 bytes
+File: "LucidaBrightRegular.ttf.svn-work" 0/53 bytes
+File: "LucidaSansDemiBold.ttf.svn-work" 0/53 bytes
+File: "LucidaSansRegular.ttf.svn-work" 0/53 bytes
+File: "LucidaTypewriterBold.ttf.svn-work" 0/53 bytes
+File: "LucidaTypewriterRegular.ttf.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\ext"
+File: "dnsns.jar" 8239 bytes
+File: "localedata.jar" 833261 bytes
+File: "meta-index" 521 bytes
+File: "sunjce_provider.jar" 170239 bytes
+File: "sunmscapi.jar" 33668 bytes
+File: "sunpkcs11.jar" 231749 bytes
+SetOutPath: "$INSTDIR\jre6\lib\ext\.svn"
+File: "entries" 554 bytes
+SetOutPath: "$INSTDIR\jre6\lib\ext\.svn\props"
+File: "dnsns.jar.svn-work" 0/53 bytes
+File: "localedata.jar.svn-work" 0/53 bytes
+File: "sunjce_provider.jar.svn-work" 0/53 bytes
+File: "sunmscapi.jar.svn-work" 0/53 bytes
+File: "sunpkcs11.jar.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy"
+File: "ffjcext.zip" 16801 bytes
+File: "lzma.dll" 152576 bytes
+File: "messages.properties" 2665 bytes
+File: "messages_de.properties" 3168 bytes
+File: "messages_es.properties" 3330 bytes
+File: "messages_fr.properties" 3464 bytes
+File: "messages_it.properties" 3109 bytes
+File: "messages_ja.properties" 6244 bytes
+File: "messages_ko.properties" 5037 bytes
+File: "messages_pt_BR.properties" 2991 bytes
+File: "messages_sv.properties" 3297 bytes
+File: "messages_zh_CN.properties" 3725 bytes
+File: "messages_zh_HK.properties" 3732 bytes
+File: "messages_zh_TW.properties" 0/3732 bytes
+File: "splash.gif" 7892 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs"
+File: "jqs.conf" 41208 bytes
+File: "jqsmessages.properties" 1786 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ie"
+File: "jqs_plugin.dll" 79648 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn"
+File: "entries" 309 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn\props"
+File: "jqs_plugin.dll.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ff"
+File: "chrome.manifest" 108 bytes
+File: "install.rdf" 678 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content"
+File: "overlay.js" 782 bytes
+File: "overlay.xul" 173 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content\.svn"
+File: "entries" 317 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\.svn"
+File: "entries" 279 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\ff\.svn"
+File: "entries" 327 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\jqs\.svn"
+File: "entries" 340 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\.svn"
+File: "entries" 875 bytes
+SetOutPath: "$INSTDIR\jre6\lib\deploy\.svn\props"
+File: "ffjcext.zip.svn-work" 0/53 bytes
+File: "lzma.dll.svn-work" 0/53 bytes
+File: "splash.gif.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\cmm"
+File: "CIEXYZ.pf" 51236 bytes
+File: "GRAY.pf" 632 bytes
+File: "LINEAR_RGB.pf" 1044 bytes
+File: "PYCC.pf" 274474 bytes
+File: "sRGB.pf" 3144 bytes
+SetOutPath: "$INSTDIR\jre6\lib\cmm\.svn"
+File: "entries" 504 bytes
+SetOutPath: "$INSTDIR\jre6\lib\cmm\.svn\props"
+File: "CIEXYZ.pf.svn-work" 0/53 bytes
+File: "GRAY.pf.svn-work" 0/53 bytes
+File: "LINEAR_RGB.pf.svn-work" 0/53 bytes
+File: "PYCC.pf.svn-work" 0/53 bytes
+File: "sRGB.pf.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\audio"
+File: "soundbank.gm" 493589 bytes
+SetOutPath: "$INSTDIR\jre6\lib\audio\.svn"
+File: "entries" 299 bytes
+SetOutPath: "$INSTDIR\jre6\lib\audio\.svn\props"
+File: "soundbank.gm.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\lib\applet\.svn"
+File: "entries" 244 bytes
+SetOutPath: "$INSTDIR\jre6\lib\.svn"
+File: "entries" 953 bytes
+File: "log" 229 bytes
+SetOutPath: "$INSTDIR\jre6\lib\.svn\props"
+File: "charsets.jar.svn-work" 0/53 bytes
+File: "deploy.jar.svn-work" 0/53 bytes
+File: "fontconfig.98.bfc.svn-work" 0/53 bytes
+File: "fontconfig.bfc.svn-work" 0/53 bytes
+File: "javaws.jar.svn-work" 0/53 bytes
+File: "jce.jar.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\launch4j-tmp"
+File: "fluxo.exe" 145184 bytes
+SetOutPath: "$INSTDIR\jre6\bin"
+File: "awt.dll" 1208320 bytes
+File: "axbridge.dll" 118784 bytes
+File: "cmm.dll" 192512 bytes
+File: "dcpr.dll" 143360 bytes
+File: "deploy.dll" 77824 bytes
+File: "deployJava1.dll" 472808 bytes
+File: "dt_shmem.dll" 16896 bytes
+File: "dt_socket.dll" 13312 bytes
+File: "eula.dll" 94208 bytes
+File: "fontmanager.dll" 323584 bytes
+File: "hpi.dll" 15872 bytes
+File: "hprof.dll" 139264 bytes
+File: "instrument.dll" 98304 bytes
+File: "ioser12.dll" 12800 bytes
+File: "j2pcsc.dll" 7680 bytes
+File: "j2pkcs11.dll" 41984 bytes
+File: "jaas_nt.dll" 10240 bytes
+File: "java-rmi.exe" 33568 bytes
+File: "java.dll" 126976 bytes
+File: "java.exe" 145184 bytes
+File: "javacpl.exe" 59168 bytes
+File: "javaw.exe" 0/145184 bytes
+File: "javaws.exe" 157472 bytes
+File: "java_crw_demo.dll" 14336 bytes
+File: "jawt.dll" 5120 bytes
+File: "jbroker.exe" 79648 bytes
+File: "JdbcOdbc.dll" 36352 bytes
+File: "jdwp.dll" 167936 bytes
+File: "jkernel.dll" 217088 bytes
+File: "jli.dll" 77824 bytes
+File: "jp2iexp.dll" 112416 bytes
+File: "jp2launcher.exe" 23328 bytes
+File: "jp2native.dll" 8192 bytes
+File: "jp2ssv.dll" 41760 bytes
+File: "jpeg.dll" 151552 bytes
+File: "jpicom.dll" 98304 bytes
+File: "jpiexp.dll" 114688 bytes
+File: "jpinscp.dll" 98304 bytes
+File: "jpioji.dll" 65536 bytes
+File: "jpishare.dll" 126976 bytes
+File: "jqs.exe" 153376 bytes
+File: "jqsnotify.exe" 55072 bytes
+File: "jsound.dll" 147456 bytes
+File: "jsoundds.dll" 18432 bytes
+File: "keytool.exe" 33568 bytes
+File: "kinit.exe" 33568 bytes
+File: "klist.exe" 33568 bytes
+File: "ktab.exe" 33568 bytes
+File: "management.dll" 18432 bytes
+File: "mlib_image.dll" 602112 bytes
+File: "msvcr71.dll" 348160 bytes
+File: "msvcrt.dll" 266293 bytes
+File: "net.dll" 77824 bytes
+File: "nio.dll" 20480 bytes
+File: "npdeployJava1.dll" 472808 bytes
+File: "npjpi160_24.dll" 141088 bytes
+File: "npoji610.dll" 131072 bytes
+File: "npt.dll" 8192 bytes
+File: "orbd.exe" 33568 bytes
+File: "pack200.exe" 33568 bytes
+File: "policytool.exe" 33568 bytes
+File: "regutils.dll" 278528 bytes
+File: "rmi.dll" 5120 bytes
+File: "rmid.exe" 33568 bytes
+File: "rmiregistry.exe" 33568 bytes
+File: "servertool.exe" 33568 bytes
+File: "splashscreen.dll" 131072 bytes
+File: "ssv.dll" 325408 bytes
+File: "ssvagent.exe" 30496 bytes
+File: "sunmscapi.dll" 16384 bytes
+File: "tnameserv.exe" 33568 bytes
+File: "unicows.dll" 245400 bytes
+File: "unpack.dll" 61440 bytes
+File: "unpack200.exe" 132896 bytes
+File: "verify.dll" 31744 bytes
+File: "w2k_lsa_auth.dll" 10240 bytes
+File: "wsdetect.dll" 108320 bytes
+File: "zip.dll" 46592 bytes
+SetOutPath: "$INSTDIR\jre6\bin\new_plugin"
+File: "msvcr71.dll" 0/348160 bytes
+File: "npdeployJava1.dll" 0/472808 bytes
+File: "npjp2.dll" 69632 bytes
+SetOutPath: "$INSTDIR\jre6\bin\new_plugin\.svn"
+File: "entries" 417 bytes
+SetOutPath: "$INSTDIR\jre6\bin\new_plugin\.svn\props"
+File: "msvcr71.dll.svn-work" 0/53 bytes
+File: "npdeployJava1.dll.svn-work" 0/53 bytes
+File: "npjp2.dll.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\bin\client"
+File: "classes.jsa" 13369344 bytes
+File: "jvm.dll" 2695168 bytes
+File: "Xusage.txt" 1447 bytes
+SetOutPath: "$INSTDIR\jre6\bin\client\.svn"
+File: "entries" 375 bytes
+SetOutPath: "$INSTDIR\jre6\bin\client\.svn\props"
+File: "classes.jsa.svn-work" 0/53 bytes
+File: "jvm.dll.svn-work" 0/53 bytes
+SetOutPath: "$INSTDIR\jre6\bin\.svn"
+File: "entries" 4558 bytes
+SetOutPath: "$INSTDIR\jre6\bin\.svn\props"
+File: "awt.dll.svn-work" 0/53 bytes
+File: "axbridge.dll.svn-work" 0/53 bytes
+File: "cmm.dll.svn-work" 0/53 bytes
+File: "dcpr.dll.svn-work" 0/53 bytes
+File: "deploy.dll.svn-work" 0/53 bytes
+File: "deployJava1.dll.svn-work" 0/53 bytes
+File: "dt_shmem.dll.svn-work" 0/53 bytes
+File: "dt_socket.dll.svn-work" 0/53 bytes
+File: "eula.dll.svn-work" 0/53 bytes
+File: "fontmanager.dll.svn-work" 0/53 bytes
+File: "hpi.dll.svn-work" 0/53 bytes
+File: "hprof.dll.svn-work" 0/53 bytes
+File: "instrument.dll.svn-work" 0/53 bytes
+File: "ioser12.dll.svn-work" 0/53 bytes
+File: "j2pcsc.dll.svn-work" 0/53 bytes
+File: "j2pkcs11.dll.svn-work" 0/53 bytes
+File: "jaas_nt.dll.svn-work" 0/53 bytes
+File: "java-rmi.exe.svn-work" 0/53 bytes
+File: "java.dll.svn-work" 0/53 bytes
+File: "java.exe.svn-work" 0/53 bytes
+File: "javacpl.exe.svn-work" 0/53 bytes
+File: "javaw.exe.svn-work" 0/53 bytes
+File: "javaws.exe.svn-work" 0/53 bytes
+File: "java_crw_demo.dll.svn-work" 0/53 bytes
+File: "jawt.dll.svn-work" 0/53 bytes
+File: "jbroker.exe.svn-work" 0/53 bytes
+File: "JdbcOdbc.dll.svn-work" 0/53 bytes
+File: "jdwp.dll.svn-work" 0/53 bytes
+File: "jkernel.dll.svn-work" 0/53 bytes
+File: "jli.dll.svn-work" 0/53 bytes
+File: "jp2iexp.dll.svn-work" 0/53 bytes
+File: "jp2launcher.exe.svn-work" 0/53 bytes
+File: "jp2native.dll.svn-work" 0/53 bytes
+File: "jp2ssv.dll.svn-work" 0/53 bytes
+File: "jpeg.dll.svn-work" 0/53 bytes
+File: "jpicom.dll.svn-work" 0/53 bytes
+File: "jpiexp.dll.svn-work" 0/53 bytes
+File: "jpinscp.dll.svn-work" 0/53 bytes
+File: "jpioji.dll.svn-work" 0/53 bytes
+File: "jpishare.dll.svn-work" 0/53 bytes
+File: "jqs.exe.svn-work" 0/53 bytes
+File: "jqsnotify.exe.svn-work" 0/53 bytes
+File: "jsound.dll.svn-work" 0/53 bytes
+File: "jsoundds.dll.svn-work" 0/53 bytes
+File: "keytool.exe.svn-work" 0/53 bytes
+File: "kinit.exe.svn-work" 0/53 bytes
+File: "klist.exe.svn-work" 0/53 bytes
+File: "ktab.exe.svn-work" 0/53 bytes
+File: "management.dll.svn-work" 0/53 bytes
+File: "mlib_image.dll.svn-work" 0/53 bytes
+File: "msvcr71.dll.svn-work" 0/53 bytes
+File: "msvcrt.dll.svn-work" 0/53 bytes
+File: "net.dll.svn-work" 0/53 bytes
+File: "nio.dll.svn-work" 0/53 bytes
+File: "npdeployJava1.dll.svn-work" 0/53 bytes
+File: "npjpi160_24.dll.svn-work" 0/53 bytes
+File: "npoji610.dll.svn-work" 0/53 bytes
+File: "npt.dll.svn-work" 0/53 bytes
+File: "orbd.exe.svn-work" 0/53 bytes
+File: "pack200.exe.svn-work" 0/53 bytes
+File: "policytool.exe.svn-work" 0/53 bytes
+File: "regutils.dll.svn-work" 0/53 bytes
+File: "rmi.dll.svn-work" 0/53 bytes
+File: "rmid.exe.svn-work" 0/53 bytes
+File: "rmiregistry.exe.svn-work" 0/53 bytes
+File: "servertool.exe.svn-work" 0/53 bytes
+File: "splashscreen.dll.svn-work" 0/53 bytes
+File: "ssv.dll.svn-work" 0/53 bytes
+File: "ssvagent.exe.svn-work" 0/53 bytes
+File: "sunmscapi.dll.svn-work" 0/53 bytes
+File: "tnameserv.exe.svn-work" 0/53 bytes
+File: "unicows.dll.svn-work" 0/53 bytes
+File: "unpack.dll.svn-work" 0/53 bytes
+File: "unpack200.exe.svn-work" 0/53 bytes
+File: "verify.dll.svn-work" 0/53 bytes
+File: "w2k_lsa_auth.dll.svn-work" 0/53 bytes
+File: "wsdetect.dll.svn-work" 0/53 bytes
+File: "zip.dll.svn-work" 0/53 bytes
+SectionEnd
+Section: "-Icons_Reg"
+SetOutPath: "$INSTDIR"
+WriteUninstaller: "$INSTDIR\uninstall.exe"
+!insertmacro: MUI_STARTMENU_WRITE_BEGIN
+!insertmacro: end of MUI_STARTMENU_WRITE_BEGIN
+CreateDirectory: "$SMPROGRAMS\$SM_Folder"
+CreateShortCut: "$SMPROGRAMS\$SM_Folder\Fluxo.lnk"->"$INSTDIR\fluxo.exe"  icon:,0, showmode=0x0, hotkey=0x0, comment=
+CreateShortCut: "$DESKTOP\Fluxo.lnk"->"$INSTDIR\fluxo.exe"  icon:,0, showmode=0x0, hotkey=0x0, comment=
+CreateShortCut: "$SMPROGRAMS\$SM_Folder\Uninstall Fluxo.lnk"->"$INSTDIR\uninstall.exe"  icon:,0, showmode=0x0, hotkey=0x0, comment=
+WriteINIStr: [InternetShortcut] URL=http://code.google.com/p/fluxocode in $INSTDIR\Fluxo website.url
+CreateShortCut: "$SMPROGRAMS\$SM_Folder\Fluxo Website.lnk"->"$INSTDIR\Fluxo website.url"  icon:,0, showmode=0x0, hotkey=0x0, comment=
+!insertmacro: MUI_STARTMENU_WRITE_END
+!insertmacro: end of MUI_STARTMENU_WRITE_END
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\App Paths\fluxo.exe\=$INSTDIR\fluxo.exe
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\DisplayName=Fluxo
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\UninstallString=$INSTDIR\uninstall.exe
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\DisplayIcon=$INSTDIR\fluxo.exe
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\DisplayVersion=1.0.0.0
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\Publisher=Renan Gomes
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\URLInfoAbout=http://code.google.com/p/fluxocode
+SectionEnd
+Section: "Uninstall"
+SetShellVarContext: all
+Delete: "$INSTDIR\fluxo-icon.png"
+Delete: "$INSTDIR\fluxo-screenshot.jpg"
+Delete: "$INSTDIR\fluxo-splash.bmp"
+Delete: "$INSTDIR\fluxo.exe"
+Delete: "$INSTDIR\Fluxo.jar"
+Delete: "$INSTDIR\legenda.rtf"
+Delete: "$INSTDIR\README.TXT"
+Delete: "$INSTDIR\lib\jgraphx.jar"
+Delete: "$INSTDIR\lib\.svn\all-wcprops"
+Delete: "$INSTDIR\lib\.svn\entries"
+Delete: "$INSTDIR\lib\.svn\text-base\jgraphx.jar.svn-base"
+Delete: "$INSTDIR\lib\.svn\prop-base\jgraphx.jar.svn-base"
+Delete: "$INSTDIR\jre6\lib\calendars.properties"
+Delete: "$INSTDIR\jre6\lib\charsets.jar"
+Delete: "$INSTDIR\jre6\lib\classlist"
+Delete: "$INSTDIR\jre6\lib\content-types.properties"
+Delete: "$INSTDIR\jre6\lib\deploy.jar"
+Delete: "$INSTDIR\jre6\lib\flavormap.properties"
+Delete: "$INSTDIR\jre6\lib\fontconfig.98.bfc"
+Delete: "$INSTDIR\jre6\lib\fontconfig.98.properties.src"
+Delete: "$INSTDIR\jre6\lib\fontconfig.bfc"
+Delete: "$INSTDIR\jre6\lib\fontconfig.properties.src"
+Delete: "$INSTDIR\jre6\lib\javaws.jar"
+Delete: "$INSTDIR\jre6\lib\jce.jar"
+Delete: "$INSTDIR\jre6\lib\jsse.jar"
+Delete: "$INSTDIR\jre6\lib\jvm.hprof.txt"
+Delete: "$INSTDIR\jre6\lib\logging.properties"
+Delete: "$INSTDIR\jre6\lib\management-agent.jar"
+Delete: "$INSTDIR\jre6\lib\meta-index"
+Delete: "$INSTDIR\jre6\lib\net.properties"
+Delete: "$INSTDIR\jre6\lib\plugin.jar"
+Delete: "$INSTDIR\jre6\lib\psfont.properties.ja"
+Delete: "$INSTDIR\jre6\lib\psfontj2d.properties"
+Delete: "$INSTDIR\jre6\lib\resources.jar"
+Delete: "$INSTDIR\jre6\lib\rt.jar"
+Delete: "$INSTDIR\jre6\lib\sound.properties"
+Delete: "$INSTDIR\jre6\lib\tzmappings"
+Delete: "$INSTDIR\jre6\lib\zi\CET"
+Delete: "$INSTDIR\jre6\lib\zi\CST6CDT"
+Delete: "$INSTDIR\jre6\lib\zi\EET"
+Delete: "$INSTDIR\jre6\lib\zi\EST"
+Delete: "$INSTDIR\jre6\lib\zi\EST5EDT"
+Delete: "$INSTDIR\jre6\lib\zi\GMT"
+Delete: "$INSTDIR\jre6\lib\zi\HST"
+Delete: "$INSTDIR\jre6\lib\zi\MET"
+Delete: "$INSTDIR\jre6\lib\zi\MST"
+Delete: "$INSTDIR\jre6\lib\zi\MST7MDT"
+Delete: "$INSTDIR\jre6\lib\zi\PST8PDT"
+Delete: "$INSTDIR\jre6\lib\zi\WET"
+Delete: "$INSTDIR\jre6\lib\zi\ZoneInfoMappings"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\AST4"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\AST4ADT"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\CST6"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\CST6CDT"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\EST5"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\EST5EDT"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\HST10"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\MST7"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\MST7MDT"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\PST8"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\PST8PDT"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\YST9"
+Delete: "$INSTDIR\jre6\lib\zi\SystemV\YST9YDT"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Apia"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Auckland"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Chatham"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Chuuk"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Easter"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Efate"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Enderbury"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Fakaofo"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Fiji"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Funafuti"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Galapagos"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Gambier"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Guadalcanal"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Guam"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Honolulu"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Johnston"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Kiritimati"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Kosrae"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Kwajalein"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Majuro"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Marquesas"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Midway"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Nauru"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Niue"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Norfolk"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Noumea"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Pago_Pago"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Palau"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Pitcairn"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Pohnpei"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Port_Moresby"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Rarotonga"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Saipan"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Tahiti"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Tarawa"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Tongatapu"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Wake"
+Delete: "$INSTDIR\jre6\lib\zi\Pacific\Wallis"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Antananarivo"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Chagos"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Christmas"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Cocos"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Comoro"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Kerguelen"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Mahe"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Maldives"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Mauritius"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Mayotte"
+Delete: "$INSTDIR\jre6\lib\zi\Indian\Reunion"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Amsterdam"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Andorra"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Athens"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Belgrade"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Berlin"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Brussels"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Bucharest"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Budapest"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Chisinau"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Copenhagen"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Dublin"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Gibraltar"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Helsinki"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Istanbul"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Kaliningrad"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Kiev"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Lisbon"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\London"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Luxembourg"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Madrid"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Malta"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Minsk"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Monaco"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Moscow"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Oslo"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Paris"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Prague"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Riga"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Rome"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Samara"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Simferopol"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Sofia"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Stockholm"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Tallinn"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Tirane"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Uzhgorod"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Vaduz"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Vienna"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Vilnius"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Volgograd"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Warsaw"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Zaporozhye"
+Delete: "$INSTDIR\jre6\lib\zi\Europe\Zurich"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+1"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+10"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+11"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+12"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+2"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+3"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+4"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+5"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+6"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+7"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+8"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT+9"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-1"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-10"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-11"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-12"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-13"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-14"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-2"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-3"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-4"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-5"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-6"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-7"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-8"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\GMT-9"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\UCT"
+Delete: "$INSTDIR\jre6\lib\zi\Etc\UTC"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Adelaide"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Brisbane"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Broken_Hill"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Currie"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Darwin"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Eucla"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Hobart"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Lindeman"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Lord_Howe"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Melbourne"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Perth"
+Delete: "$INSTDIR\jre6\lib\zi\Australia\Sydney"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Azores"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Bermuda"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Canary"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Cape_Verde"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Faroe"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Madeira"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Reykjavik"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\South_Georgia"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\Stanley"
+Delete: "$INSTDIR\jre6\lib\zi\Atlantic\St_Helena"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Aden"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Almaty"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Amman"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Anadyr"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Aqtau"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Aqtobe"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Ashgabat"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Baghdad"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Bahrain"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Baku"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Bangkok"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Beirut"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Bishkek"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Brunei"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Choibalsan"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Chongqing"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Colombo"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Damascus"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Dhaka"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Dili"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Dubai"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Dushanbe"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Gaza"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Harbin"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Hong_Kong"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Hovd"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Ho_Chi_Minh"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Irkutsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Jakarta"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Jayapura"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Jerusalem"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kabul"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kamchatka"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Karachi"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kashgar"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kathmandu"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kolkata"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Krasnoyarsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kuala_Lumpur"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kuching"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Kuwait"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Macau"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Magadan"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Makassar"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Manila"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Muscat"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Nicosia"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Novokuznetsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Novosibirsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Omsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Oral"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Phnom_Penh"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Pontianak"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Pyongyang"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Qatar"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Qyzylorda"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Rangoon"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Riyadh"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Riyadh87"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Riyadh88"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Riyadh89"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Sakhalin"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Samarkand"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Seoul"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Shanghai"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Singapore"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Taipei"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Tashkent"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Tbilisi"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Tehran"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Thimphu"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Tokyo"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Ulaanbaatar"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Urumqi"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Vientiane"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Vladivostok"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Yakutsk"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Yekaterinburg"
+Delete: "$INSTDIR\jre6\lib\zi\Asia\Yerevan"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Casey"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Davis"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\DumontDUrville"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Macquarie"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Mawson"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\McMurdo"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Palmer"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Rothera"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Syowa"
+Delete: "$INSTDIR\jre6\lib\zi\Antarctica\Vostok"
+Delete: "$INSTDIR\jre6\lib\zi\America\Adak"
+Delete: "$INSTDIR\jre6\lib\zi\America\Anchorage"
+Delete: "$INSTDIR\jre6\lib\zi\America\Anguilla"
+Delete: "$INSTDIR\jre6\lib\zi\America\Antigua"
+Delete: "$INSTDIR\jre6\lib\zi\America\Araguaina"
+Delete: "$INSTDIR\jre6\lib\zi\America\Aruba"
+Delete: "$INSTDIR\jre6\lib\zi\America\Asuncion"
+Delete: "$INSTDIR\jre6\lib\zi\America\Atikokan"
+Delete: "$INSTDIR\jre6\lib\zi\America\Bahia"
+Delete: "$INSTDIR\jre6\lib\zi\America\Bahia_Banderas"
+Delete: "$INSTDIR\jre6\lib\zi\America\Barbados"
+Delete: "$INSTDIR\jre6\lib\zi\America\Belem"
+Delete: "$INSTDIR\jre6\lib\zi\America\Belize"
+Delete: "$INSTDIR\jre6\lib\zi\America\Blanc-Sablon"
+Delete: "$INSTDIR\jre6\lib\zi\America\Boa_Vista"
+Delete: "$INSTDIR\jre6\lib\zi\America\Bogota"
+Delete: "$INSTDIR\jre6\lib\zi\America\Boise"
+Delete: "$INSTDIR\jre6\lib\zi\America\Cambridge_Bay"
+Delete: "$INSTDIR\jre6\lib\zi\America\Campo_Grande"
+Delete: "$INSTDIR\jre6\lib\zi\America\Cancun"
+Delete: "$INSTDIR\jre6\lib\zi\America\Caracas"
+Delete: "$INSTDIR\jre6\lib\zi\America\Cayenne"
+Delete: "$INSTDIR\jre6\lib\zi\America\Cayman"
+Delete: "$INSTDIR\jre6\lib\zi\America\Chicago"
+Delete: "$INSTDIR\jre6\lib\zi\America\Chihuahua"
+Delete: "$INSTDIR\jre6\lib\zi\America\Costa_Rica"
+Delete: "$INSTDIR\jre6\lib\zi\America\Cuiaba"
+Delete: "$INSTDIR\jre6\lib\zi\America\Curacao"
+Delete: "$INSTDIR\jre6\lib\zi\America\Danmarkshavn"
+Delete: "$INSTDIR\jre6\lib\zi\America\Dawson"
+Delete: "$INSTDIR\jre6\lib\zi\America\Dawson_Creek"
+Delete: "$INSTDIR\jre6\lib\zi\America\Denver"
+Delete: "$INSTDIR\jre6\lib\zi\America\Detroit"
+Delete: "$INSTDIR\jre6\lib\zi\America\Dominica"
+Delete: "$INSTDIR\jre6\lib\zi\America\Edmonton"
+Delete: "$INSTDIR\jre6\lib\zi\America\Eirunepe"
+Delete: "$INSTDIR\jre6\lib\zi\America\El_Salvador"
+Delete: "$INSTDIR\jre6\lib\zi\America\Fortaleza"
+Delete: "$INSTDIR\jre6\lib\zi\America\Glace_Bay"
+Delete: "$INSTDIR\jre6\lib\zi\America\Godthab"
+Delete: "$INSTDIR\jre6\lib\zi\America\Goose_Bay"
+Delete: "$INSTDIR\jre6\lib\zi\America\Grand_Turk"
+Delete: "$INSTDIR\jre6\lib\zi\America\Grenada"
+Delete: "$INSTDIR\jre6\lib\zi\America\Guadeloupe"
+Delete: "$INSTDIR\jre6\lib\zi\America\Guatemala"
+Delete: "$INSTDIR\jre6\lib\zi\America\Guayaquil"
+Delete: "$INSTDIR\jre6\lib\zi\America\Guyana"
+Delete: "$INSTDIR\jre6\lib\zi\America\Halifax"
+Delete: "$INSTDIR\jre6\lib\zi\America\Havana"
+Delete: "$INSTDIR\jre6\lib\zi\America\Hermosillo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Inuvik"
+Delete: "$INSTDIR\jre6\lib\zi\America\Iqaluit"
+Delete: "$INSTDIR\jre6\lib\zi\America\Jamaica"
+Delete: "$INSTDIR\jre6\lib\zi\America\Juneau"
+Delete: "$INSTDIR\jre6\lib\zi\America\La_Paz"
+Delete: "$INSTDIR\jre6\lib\zi\America\Lima"
+Delete: "$INSTDIR\jre6\lib\zi\America\Los_Angeles"
+Delete: "$INSTDIR\jre6\lib\zi\America\Maceio"
+Delete: "$INSTDIR\jre6\lib\zi\America\Managua"
+Delete: "$INSTDIR\jre6\lib\zi\America\Manaus"
+Delete: "$INSTDIR\jre6\lib\zi\America\Martinique"
+Delete: "$INSTDIR\jre6\lib\zi\America\Matamoros"
+Delete: "$INSTDIR\jre6\lib\zi\America\Mazatlan"
+Delete: "$INSTDIR\jre6\lib\zi\America\Menominee"
+Delete: "$INSTDIR\jre6\lib\zi\America\Merida"
+Delete: "$INSTDIR\jre6\lib\zi\America\Mexico_City"
+Delete: "$INSTDIR\jre6\lib\zi\America\Miquelon"
+Delete: "$INSTDIR\jre6\lib\zi\America\Moncton"
+Delete: "$INSTDIR\jre6\lib\zi\America\Monterrey"
+Delete: "$INSTDIR\jre6\lib\zi\America\Montevideo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Montreal"
+Delete: "$INSTDIR\jre6\lib\zi\America\Montserrat"
+Delete: "$INSTDIR\jre6\lib\zi\America\Nassau"
+Delete: "$INSTDIR\jre6\lib\zi\America\New_York"
+Delete: "$INSTDIR\jre6\lib\zi\America\Nipigon"
+Delete: "$INSTDIR\jre6\lib\zi\America\Nome"
+Delete: "$INSTDIR\jre6\lib\zi\America\Noronha"
+Delete: "$INSTDIR\jre6\lib\zi\America\Ojinaga"
+Delete: "$INSTDIR\jre6\lib\zi\America\Panama"
+Delete: "$INSTDIR\jre6\lib\zi\America\Pangnirtung"
+Delete: "$INSTDIR\jre6\lib\zi\America\Paramaribo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Phoenix"
+Delete: "$INSTDIR\jre6\lib\zi\America\Port-au-Prince"
+Delete: "$INSTDIR\jre6\lib\zi\America\Porto_Velho"
+Delete: "$INSTDIR\jre6\lib\zi\America\Port_of_Spain"
+Delete: "$INSTDIR\jre6\lib\zi\America\Puerto_Rico"
+Delete: "$INSTDIR\jre6\lib\zi\America\Rainy_River"
+Delete: "$INSTDIR\jre6\lib\zi\America\Rankin_Inlet"
+Delete: "$INSTDIR\jre6\lib\zi\America\Recife"
+Delete: "$INSTDIR\jre6\lib\zi\America\Regina"
+Delete: "$INSTDIR\jre6\lib\zi\America\Resolute"
+Delete: "$INSTDIR\jre6\lib\zi\America\Rio_Branco"
+Delete: "$INSTDIR\jre6\lib\zi\America\Santarem"
+Delete: "$INSTDIR\jre6\lib\zi\America\Santa_Isabel"
+Delete: "$INSTDIR\jre6\lib\zi\America\Santiago"
+Delete: "$INSTDIR\jre6\lib\zi\America\Santo_Domingo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Sao_Paulo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Scoresbysund"
+Delete: "$INSTDIR\jre6\lib\zi\America\St_Johns"
+Delete: "$INSTDIR\jre6\lib\zi\America\St_Kitts"
+Delete: "$INSTDIR\jre6\lib\zi\America\St_Lucia"
+Delete: "$INSTDIR\jre6\lib\zi\America\St_Thomas"
+Delete: "$INSTDIR\jre6\lib\zi\America\St_Vincent"
+Delete: "$INSTDIR\jre6\lib\zi\America\Swift_Current"
+Delete: "$INSTDIR\jre6\lib\zi\America\Tegucigalpa"
+Delete: "$INSTDIR\jre6\lib\zi\America\Thule"
+Delete: "$INSTDIR\jre6\lib\zi\America\Thunder_Bay"
+Delete: "$INSTDIR\jre6\lib\zi\America\Tijuana"
+Delete: "$INSTDIR\jre6\lib\zi\America\Toronto"
+Delete: "$INSTDIR\jre6\lib\zi\America\Tortola"
+Delete: "$INSTDIR\jre6\lib\zi\America\Vancouver"
+Delete: "$INSTDIR\jre6\lib\zi\America\Whitehorse"
+Delete: "$INSTDIR\jre6\lib\zi\America\Winnipeg"
+Delete: "$INSTDIR\jre6\lib\zi\America\Yakutat"
+Delete: "$INSTDIR\jre6\lib\zi\America\Yellowknife"
+Delete: "$INSTDIR\jre6\lib\zi\America\North_Dakota\Center"
+Delete: "$INSTDIR\jre6\lib\zi\America\North_Dakota\New_Salem"
+Delete: "$INSTDIR\jre6\lib\zi\America\Kentucky\Louisville"
+Delete: "$INSTDIR\jre6\lib\zi\America\Kentucky\Monticello"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Indianapolis"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Knox"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Marengo"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Petersburg"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Tell_City"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Vevay"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Vincennes"
+Delete: "$INSTDIR\jre6\lib\zi\America\Indiana\Winamac"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Buenos_Aires"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Catamarca"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Cordoba"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Jujuy"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\La_Rioja"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Mendoza"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Rio_Gallegos"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Salta"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\San_Juan"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\San_Luis"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Tucuman"
+Delete: "$INSTDIR\jre6\lib\zi\America\Argentina\Ushuaia"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Abidjan"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Accra"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Addis_Ababa"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Algiers"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Asmara"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Bamako"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Bangui"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Banjul"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Bissau"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Blantyre"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Brazzaville"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Bujumbura"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Cairo"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Casablanca"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Ceuta"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Conakry"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Dakar"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Dar_es_Salaam"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Djibouti"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Douala"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\El_Aaiun"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Freetown"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Gaborone"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Harare"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Johannesburg"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Kampala"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Khartoum"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Kigali"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Kinshasa"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Lagos"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Libreville"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Lome"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Luanda"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Lubumbashi"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Lusaka"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Malabo"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Maputo"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Maseru"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Mbabane"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Mogadishu"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Monrovia"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Nairobi"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Ndjamena"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Niamey"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Nouakchott"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Ouagadougou"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Porto-Novo"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Sao_Tome"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Tripoli"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Tunis"
+Delete: "$INSTDIR\jre6\lib\zi\Africa\Windhoek"
+Delete: "$INSTDIR\jre6\lib\servicetag\jdk_header.png"
+Delete: "$INSTDIR\jre6\lib\servicetag\registration.xml"
+Delete: "$INSTDIR\jre6\lib\security\blacklist"
+Delete: "$INSTDIR\jre6\lib\security\cacerts"
+Delete: "$INSTDIR\jre6\lib\security\java.policy"
+Delete: "$INSTDIR\jre6\lib\security\java.security"
+Delete: "$INSTDIR\jre6\lib\security\javaws.policy"
+Delete: "$INSTDIR\jre6\lib\security\local_policy.jar"
+Delete: "$INSTDIR\jre6\lib\security\trusted.libraries"
+Delete: "$INSTDIR\jre6\lib\security\US_export_policy.jar"
+Delete: "$INSTDIR\jre6\lib\management\jmxremote.access"
+Delete: "$INSTDIR\jre6\lib\management\jmxremote.password.template"
+Delete: "$INSTDIR\jre6\lib\management\management.properties"
+Delete: "$INSTDIR\jre6\lib\management\snmp.acl.template"
+Delete: "$INSTDIR\jre6\lib\images\cursors\cursors.properties"
+Delete: "$INSTDIR\jre6\lib\images\cursors\invalid32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_CopyDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_CopyNoDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_LinkDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_LinkNoDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_MoveDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\win32_MoveNoDrop32x32.gif"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\invalid32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_CopyDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_CopyNoDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_LinkDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_LinkNoDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_MoveDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\cursors\.svn\props\win32_MoveNoDrop32x32.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\images\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\im\indicim.jar"
+Delete: "$INSTDIR\jre6\lib\im\thaiim.jar"
+Delete: "$INSTDIR\jre6\lib\im\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\im\.svn\props\indicim.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\im\.svn\props\thaiim.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\i386\jvm.cfg"
+Delete: "$INSTDIR\jre6\lib\i386\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaBrightDemiBold.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaBrightDemiItalic.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaBrightItalic.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaBrightRegular.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaSansDemiBold.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaSansRegular.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaTypewriterBold.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\LucidaTypewriterRegular.ttf"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaBrightDemiBold.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaBrightDemiItalic.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaBrightItalic.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaBrightRegular.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaSansDemiBold.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaSansRegular.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaTypewriterBold.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\fonts\.svn\props\LucidaTypewriterRegular.ttf.svn-work"
+Delete: "$INSTDIR\jre6\lib\ext\dnsns.jar"
+Delete: "$INSTDIR\jre6\lib\ext\localedata.jar"
+Delete: "$INSTDIR\jre6\lib\ext\meta-index"
+Delete: "$INSTDIR\jre6\lib\ext\sunjce_provider.jar"
+Delete: "$INSTDIR\jre6\lib\ext\sunmscapi.jar"
+Delete: "$INSTDIR\jre6\lib\ext\sunpkcs11.jar"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\props\dnsns.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\props\localedata.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\props\sunjce_provider.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\props\sunmscapi.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\ext\.svn\props\sunpkcs11.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\deploy\ffjcext.zip"
+Delete: "$INSTDIR\jre6\lib\deploy\lzma.dll"
+Delete: "$INSTDIR\jre6\lib\deploy\messages.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_de.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_es.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_fr.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_it.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_ja.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_ko.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_pt_BR.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_sv.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_zh_CN.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_zh_HK.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\messages_zh_TW.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\splash.gif"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\jqs.conf"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\jqsmessages.properties"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ie\jqs_plugin.dll"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn\props\jqs_plugin.dll.svn-work"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome.manifest"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\install.rdf"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content\overlay.js"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content\overlay.xul"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\ff\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\jqs\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\deploy\.svn\props\ffjcext.zip.svn-work"
+Delete: "$INSTDIR\jre6\lib\deploy\.svn\props\lzma.dll.svn-work"
+Delete: "$INSTDIR\jre6\lib\deploy\.svn\props\splash.gif.svn-work"
+Delete: "$INSTDIR\jre6\lib\cmm\CIEXYZ.pf"
+Delete: "$INSTDIR\jre6\lib\cmm\GRAY.pf"
+Delete: "$INSTDIR\jre6\lib\cmm\LINEAR_RGB.pf"
+Delete: "$INSTDIR\jre6\lib\cmm\PYCC.pf"
+Delete: "$INSTDIR\jre6\lib\cmm\sRGB.pf"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\props\CIEXYZ.pf.svn-work"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\props\GRAY.pf.svn-work"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\props\LINEAR_RGB.pf.svn-work"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\props\PYCC.pf.svn-work"
+Delete: "$INSTDIR\jre6\lib\cmm\.svn\props\sRGB.pf.svn-work"
+Delete: "$INSTDIR\jre6\lib\audio\soundbank.gm"
+Delete: "$INSTDIR\jre6\lib\audio\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\audio\.svn\props\soundbank.gm.svn-work"
+Delete: "$INSTDIR\jre6\lib\applet\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\.svn\entries"
+Delete: "$INSTDIR\jre6\lib\.svn\log"
+Delete: "$INSTDIR\jre6\lib\.svn\props\charsets.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\.svn\props\deploy.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\.svn\props\fontconfig.98.bfc.svn-work"
+Delete: "$INSTDIR\jre6\lib\.svn\props\fontconfig.bfc.svn-work"
+Delete: "$INSTDIR\jre6\lib\.svn\props\javaws.jar.svn-work"
+Delete: "$INSTDIR\jre6\lib\.svn\props\jce.jar.svn-work"
+Delete: "$INSTDIR\jre6\launch4j-tmp\fluxo.exe"
+Delete: "$INSTDIR\jre6\bin\awt.dll"
+Delete: "$INSTDIR\jre6\bin\axbridge.dll"
+Delete: "$INSTDIR\jre6\bin\cmm.dll"
+Delete: "$INSTDIR\jre6\bin\dcpr.dll"
+Delete: "$INSTDIR\jre6\bin\deploy.dll"
+Delete: "$INSTDIR\jre6\bin\deployJava1.dll"
+Delete: "$INSTDIR\jre6\bin\dt_shmem.dll"
+Delete: "$INSTDIR\jre6\bin\dt_socket.dll"
+Delete: "$INSTDIR\jre6\bin\eula.dll"
+Delete: "$INSTDIR\jre6\bin\fontmanager.dll"
+Delete: "$INSTDIR\jre6\bin\hpi.dll"
+Delete: "$INSTDIR\jre6\bin\hprof.dll"
+Delete: "$INSTDIR\jre6\bin\instrument.dll"
+Delete: "$INSTDIR\jre6\bin\ioser12.dll"
+Delete: "$INSTDIR\jre6\bin\j2pcsc.dll"
+Delete: "$INSTDIR\jre6\bin\j2pkcs11.dll"
+Delete: "$INSTDIR\jre6\bin\jaas_nt.dll"
+Delete: "$INSTDIR\jre6\bin\java-rmi.exe"
+Delete: "$INSTDIR\jre6\bin\java.dll"
+Delete: "$INSTDIR\jre6\bin\java.exe"
+Delete: "$INSTDIR\jre6\bin\javacpl.exe"
+Delete: "$INSTDIR\jre6\bin\javaw.exe"
+Delete: "$INSTDIR\jre6\bin\javaws.exe"
+Delete: "$INSTDIR\jre6\bin\java_crw_demo.dll"
+Delete: "$INSTDIR\jre6\bin\jawt.dll"
+Delete: "$INSTDIR\jre6\bin\jbroker.exe"
+Delete: "$INSTDIR\jre6\bin\JdbcOdbc.dll"
+Delete: "$INSTDIR\jre6\bin\jdwp.dll"
+Delete: "$INSTDIR\jre6\bin\jkernel.dll"
+Delete: "$INSTDIR\jre6\bin\jli.dll"
+Delete: "$INSTDIR\jre6\bin\jp2iexp.dll"
+Delete: "$INSTDIR\jre6\bin\jp2launcher.exe"
+Delete: "$INSTDIR\jre6\bin\jp2native.dll"
+Delete: "$INSTDIR\jre6\bin\jp2ssv.dll"
+Delete: "$INSTDIR\jre6\bin\jpeg.dll"
+Delete: "$INSTDIR\jre6\bin\jpicom.dll"
+Delete: "$INSTDIR\jre6\bin\jpiexp.dll"
+Delete: "$INSTDIR\jre6\bin\jpinscp.dll"
+Delete: "$INSTDIR\jre6\bin\jpioji.dll"
+Delete: "$INSTDIR\jre6\bin\jpishare.dll"
+Delete: "$INSTDIR\jre6\bin\jqs.exe"
+Delete: "$INSTDIR\jre6\bin\jqsnotify.exe"
+Delete: "$INSTDIR\jre6\bin\jsound.dll"
+Delete: "$INSTDIR\jre6\bin\jsoundds.dll"
+Delete: "$INSTDIR\jre6\bin\keytool.exe"
+Delete: "$INSTDIR\jre6\bin\kinit.exe"
+Delete: "$INSTDIR\jre6\bin\klist.exe"
+Delete: "$INSTDIR\jre6\bin\ktab.exe"
+Delete: "$INSTDIR\jre6\bin\management.dll"
+Delete: "$INSTDIR\jre6\bin\mlib_image.dll"
+Delete: "$INSTDIR\jre6\bin\msvcr71.dll"
+Delete: "$INSTDIR\jre6\bin\msvcrt.dll"
+Delete: "$INSTDIR\jre6\bin\net.dll"
+Delete: "$INSTDIR\jre6\bin\nio.dll"
+Delete: "$INSTDIR\jre6\bin\npdeployJava1.dll"
+Delete: "$INSTDIR\jre6\bin\npjpi160_24.dll"
+Delete: "$INSTDIR\jre6\bin\npoji610.dll"
+Delete: "$INSTDIR\jre6\bin\npt.dll"
+Delete: "$INSTDIR\jre6\bin\orbd.exe"
+Delete: "$INSTDIR\jre6\bin\pack200.exe"
+Delete: "$INSTDIR\jre6\bin\policytool.exe"
+Delete: "$INSTDIR\jre6\bin\regutils.dll"
+Delete: "$INSTDIR\jre6\bin\rmi.dll"
+Delete: "$INSTDIR\jre6\bin\rmid.exe"
+Delete: "$INSTDIR\jre6\bin\rmiregistry.exe"
+Delete: "$INSTDIR\jre6\bin\servertool.exe"
+Delete: "$INSTDIR\jre6\bin\splashscreen.dll"
+Delete: "$INSTDIR\jre6\bin\ssv.dll"
+Delete: "$INSTDIR\jre6\bin\ssvagent.exe"
+Delete: "$INSTDIR\jre6\bin\sunmscapi.dll"
+Delete: "$INSTDIR\jre6\bin\tnameserv.exe"
+Delete: "$INSTDIR\jre6\bin\unicows.dll"
+Delete: "$INSTDIR\jre6\bin\unpack.dll"
+Delete: "$INSTDIR\jre6\bin\unpack200.exe"
+Delete: "$INSTDIR\jre6\bin\verify.dll"
+Delete: "$INSTDIR\jre6\bin\w2k_lsa_auth.dll"
+Delete: "$INSTDIR\jre6\bin\wsdetect.dll"
+Delete: "$INSTDIR\jre6\bin\zip.dll"
+Delete: "$INSTDIR\jre6\bin\new_plugin\msvcr71.dll"
+Delete: "$INSTDIR\jre6\bin\new_plugin\npdeployJava1.dll"
+Delete: "$INSTDIR\jre6\bin\new_plugin\npjp2.dll"
+Delete: "$INSTDIR\jre6\bin\new_plugin\.svn\entries"
+Delete: "$INSTDIR\jre6\bin\new_plugin\.svn\props\msvcr71.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\new_plugin\.svn\props\npdeployJava1.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\new_plugin\.svn\props\npjp2.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\client\classes.jsa"
+Delete: "$INSTDIR\jre6\bin\client\jvm.dll"
+Delete: "$INSTDIR\jre6\bin\client\Xusage.txt"
+Delete: "$INSTDIR\jre6\bin\client\.svn\entries"
+Delete: "$INSTDIR\jre6\bin\client\.svn\props\classes.jsa.svn-work"
+Delete: "$INSTDIR\jre6\bin\client\.svn\props\jvm.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\entries"
+Delete: "$INSTDIR\jre6\bin\.svn\props\awt.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\axbridge.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\cmm.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\dcpr.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\deploy.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\deployJava1.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\dt_shmem.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\dt_socket.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\eula.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\fontmanager.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\hpi.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\hprof.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\instrument.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\ioser12.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\j2pcsc.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\j2pkcs11.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jaas_nt.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\java-rmi.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\java.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\java.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\javacpl.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\javaw.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\javaws.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\java_crw_demo.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jawt.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jbroker.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\JdbcOdbc.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jdwp.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jkernel.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jli.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jp2iexp.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jp2launcher.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jp2native.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jp2ssv.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpeg.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpicom.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpiexp.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpinscp.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpioji.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jpishare.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jqs.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jqsnotify.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jsound.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\jsoundds.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\keytool.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\kinit.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\klist.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\ktab.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\management.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\mlib_image.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\msvcr71.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\msvcrt.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\net.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\nio.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\npdeployJava1.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\npjpi160_24.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\npoji610.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\npt.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\orbd.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\pack200.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\policytool.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\regutils.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\rmi.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\rmid.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\rmiregistry.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\servertool.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\splashscreen.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\ssv.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\ssvagent.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\sunmscapi.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\tnameserv.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\unicows.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\unpack.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\unpack200.exe.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\verify.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\w2k_lsa_auth.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\wsdetect.dll.svn-work"
+Delete: "$INSTDIR\jre6\bin\.svn\props\zip.dll.svn-work"
+RMDir: "$INSTDIR\jre6\bin\.svn\props"
+RMDir: "$INSTDIR\jre6\bin\.svn"
+RMDir: "$INSTDIR\jre6\bin\client\.svn\props"
+RMDir: "$INSTDIR\jre6\bin\client\.svn"
+RMDir: "$INSTDIR\jre6\bin\client"
+RMDir: "$INSTDIR\jre6\bin\new_plugin\.svn\props"
+RMDir: "$INSTDIR\jre6\bin\new_plugin\.svn"
+RMDir: "$INSTDIR\jre6\bin\new_plugin"
+RMDir: "$INSTDIR\jre6\bin"
+RMDir: "$INSTDIR\jre6\launch4j-tmp"
+RMDir: "$INSTDIR\jre6\lib\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\.svn"
+RMDir: "$INSTDIR\jre6\lib\applet\.svn"
+RMDir: "$INSTDIR\jre6\lib\audio\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\audio\.svn"
+RMDir: "$INSTDIR\jre6\lib\audio"
+RMDir: "$INSTDIR\jre6\lib\cmm\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\cmm\.svn"
+RMDir: "$INSTDIR\jre6\lib\cmm"
+RMDir: "$INSTDIR\jre6\lib\deploy\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\deploy\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ff\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ff\chrome\content"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ff"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ie\.svn"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs\ie"
+RMDir: "$INSTDIR\jre6\lib\deploy\jqs"
+RMDir: "$INSTDIR\jre6\lib\deploy"
+RMDir: "$INSTDIR\jre6\lib\ext\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\ext\.svn"
+RMDir: "$INSTDIR\jre6\lib\ext"
+RMDir: "$INSTDIR\jre6\lib\fonts\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\fonts\.svn"
+RMDir: "$INSTDIR\jre6\lib\fonts"
+RMDir: "$INSTDIR\jre6\lib\i386\.svn"
+RMDir: "$INSTDIR\jre6\lib\i386"
+RMDir: "$INSTDIR\jre6\lib\im\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\im\.svn"
+RMDir: "$INSTDIR\jre6\lib\im"
+RMDir: "$INSTDIR\jre6\lib\images\.svn"
+RMDir: "$INSTDIR\jre6\lib\images\cursors\.svn\props"
+RMDir: "$INSTDIR\jre6\lib\images\cursors\.svn"
+RMDir: "$INSTDIR\jre6\lib\images\cursors"
+RMDir: "$INSTDIR\jre6\lib\management"
+RMDir: "$INSTDIR\jre6\lib\security"
+RMDir: "$INSTDIR\jre6\lib\servicetag"
+RMDir: "$INSTDIR\jre6\lib\zi\Africa"
+RMDir: "$INSTDIR\jre6\lib\zi\America\Argentina"
+RMDir: "$INSTDIR\jre6\lib\zi\America\Indiana"
+RMDir: "$INSTDIR\jre6\lib\zi\America\Kentucky"
+RMDir: "$INSTDIR\jre6\lib\zi\America\North_Dakota"
+RMDir: "$INSTDIR\jre6\lib\zi\America"
+RMDir: "$INSTDIR\jre6\lib\zi\Antarctica"
+RMDir: "$INSTDIR\jre6\lib\zi\Asia"
+RMDir: "$INSTDIR\jre6\lib\zi\Atlantic"
+RMDir: "$INSTDIR\jre6\lib\zi\Australia"
+RMDir: "$INSTDIR\jre6\lib\zi\Etc"
+RMDir: "$INSTDIR\jre6\lib\zi\Europe"
+RMDir: "$INSTDIR\jre6\lib\zi\Indian"
+RMDir: "$INSTDIR\jre6\lib\zi\Pacific"
+RMDir: "$INSTDIR\jre6\lib\zi\SystemV"
+RMDir: "$INSTDIR\jre6\lib\zi"
+RMDir: "$INSTDIR\jre6\lib"
+RMDir: "$INSTDIR\lib\.svn\prop-base"
+RMDir: "$INSTDIR\lib\.svn\text-base"
+RMDir: "$INSTDIR\lib\.svn"
+RMDir: "$INSTDIR\lib"
+Delete: "$INSTDIR\uninstall.exe"
+Delete: "$INSTDIR\Fluxo website.url"
+RMDir: "$INSTDIR"
+!insertmacro: MUI_STARTMENU_GETFOLDER
+!insertmacro: end of MUI_STARTMENU_GETFOLDER
+Delete: "$SMPROGRAMS\$SM_Folder\Fluxo.lnk"
+Delete: "$SMPROGRAMS\$SM_Folder\Uninstall Fluxo.lnk"
+Delete: "$SMPROGRAMS\$SM_Folder\Fluxo Website.lnk"
+Delete: "$DESKTOP\Fluxo.lnk"
+RMDir: "$SMPROGRAMS\$SM_Folder"
+DeleteRegKey: HKLM\Software\Microsoft\Windows\CurrentVersion\App Paths\fluxo.exe
+DeleteRegKey: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo
+SectionEnd
+Function: "un.onInit"
+!insertmacro: MUI_UNGETLANGUAGE
+ReadRegStr $MUI_TEMP1 HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\Fluxo\Installer Language
+StrCmp "$MUI_TEMP1" "" equal=0, nonequal=mui.ungetlanguage_setlang
+!insertmacro: MUI_LANGDLL_DISPLAY
+!insertmacro: end of MUI_LANGDLL_DISPLAY
+Goto: mui.ungetlanguage_done
+StrCpy $LANGUAGE "$MUI_TEMP1" () ()
+!insertmacro: end of MUI_UNGETLANGUAGE
+FunctionEnd
+
+Processed 1 file, writing output:
+Adding plug-ins initializing function... Done!
+Processing pages... Done!
+Removing unused resources... Done!
+Generating language tables... Done!
+Generating uninstaller... Done!
+
+Output: "d:\Dropbox\UFPB\Compiladores\Fluxo\DOWNLOADS\instalador-fluxo-1.0.0.0-windows.exe"
+Install: 7 pages (448 bytes), 2 sections (1 required) (2096 bytes), 1392 instructions (38976 bytes), 4066 strings (132344 bytes), 49 language tables (16562 bytes).
+Uninstall: 4 pages (256 bytes), 
+1 section (1048 bytes), 1246 instructions (34888 bytes), 3486 strings (104217 bytes), 49 language tables (14014 bytes).
+Datablock optimizer saved 1632341 bytes (~1.7%).
+
+Using lzma (compress whole) compression.
+
+EXE header size:               60928 / 34816 bytes
+Install code:                          (190802 bytes)
+Install data:                          (92426594 bytes)
+Uninstall code+data:                   (215964 bytes)
+Compressed data:            20605383 / 92833360 bytes
+CRC (0x884C9B36):                  4 / 4 bytes
+
+Total size:                 20666315 / 92868180 bytes (22.2%)
