@@ -14,8 +14,8 @@ Jul/2011 – Nov/2011
 
 ## SCREENSHOTS
 <p align="center">
-  <img alt="FluxoCode Image 1" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png" width="40%"> 
-  <img alt="FluxoCode Image 2" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-2.png" width="40%">
+  <img alt="FluxoCode Image 1" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png" width="45%"> 
+  <img alt="FluxoCode Image 2" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-2.png" width="45%">
 </p>
 
 ## REQUERIMENTOS DO SISTEMA
