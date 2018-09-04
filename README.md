@@ -9,6 +9,9 @@ Uma ferramenta que permite a criação e validação de código fonte na linguag
 
 A software that allows the creation and validation of source code in the Pascal language, showing a flowchart of the code in real time. The software can be used for teaching programming as it facilitates learning and familiarization with the main language operators.
 
+## DATA DE DESENVOLVIMENTO
+Jul/2011 – Nov/2011
+
 ## SCREENSHOTS
 <p align="center">
   <img alt="FluxoCode Image 1" src="https://github.com/RenanGBarreto/fluxocode/raw/master/tmp/fluxo-1.png" width="40%"> 
@@ -31,6 +34,7 @@ Para usar o Fluxo você precisará ter um computador pelo menos as caracteristic
 ## LICENSE
 
 Copyright (C) 2012 Renan Gomes Barreto, Pedro Dantas
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
